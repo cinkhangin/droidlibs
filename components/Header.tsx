@@ -12,7 +12,7 @@ const Header: React.FC<HeaderProps> = ({searchQuery, onSearch, onClickSponsor}) 
             <div className="px-6 h-14 flex items-center justify-between">
                 <div className="flex items-center gap-4">
                     <div className="flex items-center gap-2">
-                        <img className="w-6 h-6 " src="public/favicon.svg"></img>
+                        <img className="w-6 h-6 " src="/favicon.svg" alt="logo"></img>
                         <div className="flex flex-col">
                             <h1 className="text-s font-bold tracking-[0.2em] text-zinc-600 uppercase mono">droidlibs</h1>
                             <span
