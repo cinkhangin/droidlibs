@@ -6,7 +6,7 @@ interface LibraryDetailsProps {
     onClose: () => void;
 }
 
-type Tab = 'setup' | 'tradeoffs' | 'troubleshoot';
+type Tab = 'setup' | 'tradeoffs';
 
 const LibraryDetails: React.FC<LibraryDetailsProps> = ({library, onClose}) => {
     const [activeTab, setActiveTab] = useState<Tab>('setup');
@@ -14,7 +14,6 @@ const LibraryDetails: React.FC<LibraryDetailsProps> = ({library, onClose}) => {
     const tabs: { id: Tab, label: string }[] = [
         {id: 'setup', label: 'Implementation'},
         {id: 'tradeoffs', label: 'Analysis'},
-        {id: 'troubleshoot', label: 'Reference'}
     ];
 
     return (
@@ -138,11 +137,7 @@ const LibraryDetails: React.FC<LibraryDetailsProps> = ({library, onClose}) => {
                                     ))}
                                 </div>
                             </div>
-                        </div>
-                    )}
-
-                    {activeTab === 'troubleshoot' && (
-                        <div className="max-w-3xl space-y-6">
+                            <div className="max-w-3xl space-y-6">
                             <h4 className="text-[10px] font-mono text-zinc-600 uppercase tracking-[0.2em]">Common
                                 Implementation Issues</h4>
                             {library.commonIssues.map((issue, idx) => (
@@ -160,6 +155,7 @@ const LibraryDetails: React.FC<LibraryDetailsProps> = ({library, onClose}) => {
                                     </div>
                                 </div>
                             ))}
+                            </div>
                         </div>
                     )}
                 </div>
