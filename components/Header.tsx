@@ -14,9 +14,9 @@ const Header: React.FC<HeaderProps> = ({searchQuery, onSearch, onClickSponsor}) 
                     <div className="flex items-center gap-2">
                         <img className="w-6 h-6 " src="/favicon.svg" alt="logo"></img>
                         <div className="flex flex-col">
-                            <h1 className="text-sm font-bold text-zinc-600 uppercase mono">droidlibs</h1>
+                            <h1 className="text-s font-bold text-zinc-600 uppercase mono">droidlibs</h1>
                             <span
-                                className="text-xs text-zinc-400 font-mono tracking-tighter leading-none">v2025.02.01(beta)</span>
+                                className="text-[10px] text-zinc-400 font-mono tracking-tighter leading-none">v2025.02.01(beta)</span>
                         </div>
                     </div>
 
@@ -36,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({searchQuery, onSearch, onClickSponsor}) 
                 <div className="flex items-center gap-4">
                     <button
                         onClick={() => onClickSponsor()}
-                        className="text-xs font-bold text-white bg-emerald-500 border border-white px-2 py-1.5 hover:bg-emerald-400  uppercase mono"
+                        className="text-[10px] font-bold text-white bg-emerald-500 border border-white px-2 py-1.5 hover:bg-emerald-400  uppercase mono"
                     >
                         Become a Sponsor
                     </button>
