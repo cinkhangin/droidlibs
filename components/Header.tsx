@@ -6,15 +6,18 @@ interface HeaderProps {
     onClickSponsor: () => void;
 }
 
-const Header : React.FC<HeaderProps> = ({query, onSearch, onClickSponsor}) => {
+const Header: React.FC<HeaderProps> = ({searchQuery, onSearch, onClickSponsor}) => {
     return (
         <header className="sticky top-0 z-40 bg-[#fafafa] backdrop-blur-md border-b border-white">
             <div className="px-6 h-14 flex items-center justify-between">
                 <div className="flex items-center gap-4">
-
                     <div className="flex items-center gap-2">
-                        <div className="w-3 h-3 bg-emerald-500 shadow-[0_0_10px_rgba(74,222,128,0.5)]"></div>
-                        <h1 className="text-s font-bold tracking-[0.2em] text-zinc-500 uppercase mono">droidlibs</h1>
+                        <img className="w-6 h-6 " src="../public/favicon.svg"></img>
+                        <div className="flex flex-col">
+                            <h1 className="text-s font-bold tracking-[0.2em] text-zinc-600 uppercase mono">droidlibs</h1>
+                            <span
+                                className="text-[10px] text-zinc-400 font-mono tracking-tighter leading-none">v2025.02.01(beta)</span>
+                        </div>
                     </div>
 
                     <div className="hidden md:block h-4 w-px bg-zinc-200"></div>
@@ -23,17 +26,17 @@ const Header : React.FC<HeaderProps> = ({query, onSearch, onClickSponsor}) => {
                         <input
                             type="text"
                             placeholder="Search index..."
-                            value={query}
+                            value={searchQuery}
                             onChange={(e) => onSearch(e.target.value)}
                             className="bg-white text-[12px] w-64 px-2 py-1 focus:outline-none focus:text-emerald-400 transition-colors mono border border-zinc-200"
                         />
                     </div>
                 </div>
 
-                <div className="flex items-center gap-6">
+                <div className="flex items-center gap-4">
                     <button
                         onClick={() => onClickSponsor()}
-                        className="text-[12px] font-bold text-white bg-emerald-500 border border-white px-4 py-1.5 rounded-sm hover:bg-white hover:text-black transition-all uppercase tracking-widest mono shadow-[0_0_15px_-5px_rgba(74,222,128,0.2)]"
+                        className="text-[12px] font-bold text-white bg-emerald-500 border border-white px-3 py-1.5 rounded-sm hover:bg-white hover:text-black transition-all uppercase tracking-widest mono shadow-[0_0_15px_-5px_rgba(74,222,128,0.2)]"
                     >
                         Become a Sponsor
                     </button>
