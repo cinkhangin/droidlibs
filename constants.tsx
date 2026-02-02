@@ -3,7 +3,7 @@ import { Category, Library, Sponsor, SponsorTier } from './types';
 
 export const Version = {
   INTERNAL: '0.0.2',
-  PUBLIC: "v2026.02.02a(beta)",
+  PUBLIC: "v2026.02.02b(beta)",
 };
 
 export const SPONSORS: Sponsor[] = [
@@ -24,7 +24,8 @@ export const LIBRARIES: Library[] = [
     implementation: {
       groovy: "implementation 'com.squareup.retrofit2:retrofit:3.0.0'",
       kts: "implementation(\"com.squareup.retrofit2:retrofit:3.0.0\")",
-      versionCatalog: "retrofit = \"3.0.0\"\nretrofit = { group = \"com.squareup.retrofit2\", name = \"retrofit\", version.ref = \"retrofit\" }"
+      versionCatalog: "retrofit = \"3.0.0\"\
+          \nretrofit = { group = \"com.squareup.retrofit2\", name = \"retrofit\", version.ref = \"retrofit\" }"
     },
     pros: ['Excellent community support', 'Powerful Interceptors via OkHttp'],
     cons: [''],

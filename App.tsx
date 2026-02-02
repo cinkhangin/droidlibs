@@ -63,7 +63,7 @@ const App: React.FC = () => {
                         </div>
 
                         <div
-                            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-px bg-[#fafafa]">
+                            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-1 bg-[#fafafa]">
                             {filteredLibraries.map((lib) => (
                                 <div key={lib.id} className="bg-[#fafafa]">
                                     <LibraryCard

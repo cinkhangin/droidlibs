@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Library} from '../types';
+import CodeSnippet from "@/components/CodeSnippet.tsx";
 
 interface LibraryDetailsProps {
     library: Library;
@@ -29,9 +30,9 @@ const LibraryDetails: React.FC<LibraryDetailsProps> = ({library, onClose}) => {
                         <span
                             className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">Library.doc</span>
                         <div className="w-1 h-1 rounded-full bg-emerald-500/40"></div>
-                        <h2 className="text-xs font-bold text-white uppercase tracking-tighter">{library.name}</h2>
+                        <h2 className="text-xs font-bold text-zinc-500 uppercase tracking-tighter">{library.name}</h2>
                     </div>
-                    <button onClick={onClose} className="text-zinc-600 hover:text-white transition-colors">
+                    <button onClick={onClose} className="text-zinc-600  font-bold hover:text-emerald-500 transition-colors">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                                   d="M6 18L18 6M6 6l12 12"/>
@@ -61,7 +62,7 @@ const LibraryDetails: React.FC<LibraryDetailsProps> = ({library, onClose}) => {
                 </div>
 
                 {/* Scrollable Content Area */}
-                <div className="flex-1 overflow-y-auto p-8 bg-white">
+                <div className="flex-1 overflow-y-auto p-4 bg-white">
                     {activeTab === 'setup' && (
                         <div className="max-w-3xl space-y-8">
                             <section>
@@ -72,17 +73,11 @@ const LibraryDetails: React.FC<LibraryDetailsProps> = ({library, onClose}) => {
                                 <div className="space-y-6">
                                     <div>
                                         <p className="text-[11px] text-emerald-500/60 mb-2 font-mono">libs.versions.toml</p>
-                                        <pre
-                                            className="bg-zinc-50 p-4 rounded-sm text-xs text-zinc-500 overflow-x-auto border border-zinc-100 font-mono focus:border-emerald-500/50 outline-none">
-                      {library.implementation.versionCatalog}
-                    </pre>
+                                        <CodeSnippet code={library.implementation.versionCatalog} language="toml" />
                                     </div>
                                     <div>
                                         <p className="text-[11px] text-emerald-500/60 mb-2 font-mono">build.gradle.kts</p>
-                                        <pre
-                                            className="bg-zinc-50 p-4 rounded-sm text-xs text-zinc-500 overflow-x-auto border border-zinc-100 font-mono focus:border-emerald-500/50 outline-none">
-                      {library.implementation.kts}
-                    </pre>
+                                        <CodeSnippet code={library.implementation.kts} language="kotlin" />
                                     </div>
                                 </div>
                             </section>
