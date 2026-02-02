@@ -1,6 +1,11 @@
 
 import { Category, Library, Sponsor, SponsorTier } from './types';
 
+export const Version = {
+  INTERNAL: '0.0.2',
+  PUBLIC: "v2026.02.02a(beta)",
+};
+
 export const SPONSORS: Sponsor[] = [
   { id: '1', name: 'Gold Sponsors Here', tier: SponsorTier.GOLD, url: '' },
   { id: '2', name: 'Silver Sponsors Here', tier: SponsorTier.SILVER, url: '' },

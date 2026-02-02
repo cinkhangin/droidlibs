@@ -1,4 +1,5 @@
 import * as React from "react";
+import {Version} from "@/constants.tsx";
 
 interface HeaderProps {
     searchQuery: string;
@@ -16,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({searchQuery, onSearch, onClickSponsor}) 
                         <div className="flex flex-col">
                             <h1 className="text-s font-bold text-zinc-600 uppercase mono">droidlibs</h1>
                             <span
-                                className="text-[10px] text-zinc-400 font-mono tracking-tighter leading-none">v2025.02.01(beta)</span>
+                                className="text-[10px] text-zinc-400 font-mono tracking-tighter leading-none">{Version.PUBLIC}</span>
                         </div>
                     </div>
 
