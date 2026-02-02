@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Library} from '../../types.ts';
+import {Library} from '@/types.ts';
 import CodeSnippet from "@/src/components/CodeSnippet.tsx";
 
 interface LibraryDetailsProps {

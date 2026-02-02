@@ -1,5 +1,5 @@
 import React from "react";
-import {Library} from '../../types.ts';
+import {Library} from '@/types.ts';
 
 interface LibraryCardProps {
     library: Library;

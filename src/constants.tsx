@@ -3,7 +3,7 @@ import { Category, Library, Sponsor, SponsorTier } from '../types.ts';
 
 export const Version = {
   INTERNAL: '0.0.2',
-  PUBLIC: "v2026.02.02b(beta)",
+  PUBLIC: "v2026.02.02c(beta)",
 };
 
 export const SPONSORS: Sponsor[] = [
