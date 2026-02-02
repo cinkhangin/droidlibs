@@ -34,6 +34,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({code, language}) => {
     const [copied, setCopied] = React.useState(false);
 
     const handleCopy = (text: string) => {
+        // noinspection JSIgnoredPromiseFromCall
         navigator.clipboard.writeText(text);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);

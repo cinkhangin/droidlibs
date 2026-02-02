@@ -1,13 +1,13 @@
 import React, {useState, useMemo} from 'react';
-import {Category, Library} from './types';
-import {LIBRARIES} from './constants';
-import Sidebar from './components/Sidebar';
-import LibraryCard from './components/LibraryCard';
-import LibraryDetails from './components/LibraryDetails';
-import SponsorshipModal from './components/SponsorshipModal.tsx';
-import {fetchLibraryDetails} from './services/vaultService';
-import Header from "@/components/Header.tsx";
-import Sponsors from "@/components/Sponsors.tsx";
+import {Category, Library} from '../types.ts';
+import {LIBRARIES} from './constants.tsx';
+import Sidebar from '@/src/components/Sidebar.tsx';
+import LibraryCard from '@/src/components/LibraryCard.tsx';
+import LibraryDetails from '@/src/components/LibraryDetails.tsx';
+import SponsorshipModal from '@/src/components/SponsorshipModal.tsx';
+import {fetchLibraryDetails} from '@/src/services/vaultService.ts';
+import Header from "@/src/components/Header.tsx";
+import Sponsors from "@/src/components/Sponsors.tsx";
 
 const App: React.FC = () => {
     const [selectedCategory, setSelectedCategory] = useState<Category | 'All'>('All');
@@ -22,7 +22,7 @@ const App: React.FC = () => {
             const matchesSearch = lib.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 lib.description.toLowerCase().includes(searchQuery.toLowerCase());
             return matchesCategory && matchesSearch;
-        });
+        }).sort((a, b) => b.stars - a.stars);
     }, [selectedCategory, searchQuery]);
 
     const handleLibraryClick = async (id: string) => {

@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Version} from "@/constants.tsx";
+import {Version} from "@/src/constants.tsx";
 
 interface HeaderProps {
     searchQuery: string;

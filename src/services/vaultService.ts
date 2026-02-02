@@ -1,6 +1,6 @@
 
-import { Library } from '../types';
-import { LIBRARIES } from '../constants';
+import { Library } from '@/types.ts';
+import { LIBRARIES } from '../constants.tsx';
 
 /**
  * SIMULATION NOTE: 

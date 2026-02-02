@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { Category, SponsorTier } from '../types';
-import { SPONSORS } from '../constants';
+import { Category, SponsorTier } from '@/types.ts';
+import { SPONSORS } from '../constants.tsx';
 
 interface SidebarProps {
   selectedCategory: Category | 'All';

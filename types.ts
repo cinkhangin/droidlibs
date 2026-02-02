@@ -19,7 +19,7 @@ export interface Library {
   logo?: string;
   category: Category;
   description: string;
-  stars: string;
+  stars: number;
   latestVersion: string;
   website: string;
   implementation: {

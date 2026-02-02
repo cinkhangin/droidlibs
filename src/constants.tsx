@@ -1,5 +1,5 @@
 
-import { Category, Library, Sponsor, SponsorTier } from './types';
+import { Category, Library, Sponsor, SponsorTier } from '../types.ts';
 
 export const Version = {
   INTERNAL: '0.0.2',
@@ -18,7 +18,7 @@ export const LIBRARIES: Library[] = [
     creator: 'Square',
     category: Category.NETWORKING,
     description: 'A type-safe HTTP client for Android and the JVM',
-    stars: '43.9k+',
+    stars: 43.9,
     latestVersion: '3.0.0',
     website: 'https://square.github.io/retrofit/',
     implementation: {
@@ -38,7 +38,7 @@ export const LIBRARIES: Library[] = [
     creator: 'Jetbrains',
     category: Category.NETWORKING,
     description: 'Multiplatform asynchronous HTTP client for Kotlin.',
-    stars: '14.3k+',
+    stars: 14.3,
     latestVersion: '3.4.0',
     website: 'https://ktor.io/docs/client.html',
     implementation: {
@@ -57,7 +57,7 @@ export const LIBRARIES: Library[] = [
     creator: 'Square',
     category: Category.NETWORKING,
     description: 'Square’s meticulous HTTP client for the JVM, Android, and GraalVM.',
-    stars: '46.9k+',
+    stars: 46.9,
     latestVersion: '5.3.2',
     website: 'https://square.github.io/okhttp/',
     implementation: {
@@ -76,7 +76,7 @@ export const LIBRARIES: Library[] = [
     creator: "Apollo GraphQL",
     category: Category.NETWORKING,
     description: 'Strongly-typed, caching GraphQL client for Java/KMP.',
-    stars: '3.9k+',
+    stars: 3.9,
     latestVersion: '4.4.0',
     website: 'https://www.apollographql.com/docs/kotlin/',
     implementation: {
@@ -95,7 +95,7 @@ export const LIBRARIES: Library[] = [
     creator: "Tinder",
     category: Category.NETWORKING,
     description: 'A Retrofit-inspired WebSocket client for Kotlin.',
-    stars: '3.3k+',
+    stars: 3.3,
     latestVersion: '0.1.12',
     website: 'https://github.com/Tinder/Scarlet',
     implementation: {
@@ -116,7 +116,7 @@ export const LIBRARIES: Library[] = [
     creator: "Google",
     category: Category.DI,
     description: 'Standard DI library for Android, built on Dagger.',
-    stars: 'Standard',
+    stars: 0,
     latestVersion: '2.59',
     website: 'https://dagger.dev/hilt/',
     implementation: {
@@ -135,7 +135,7 @@ export const LIBRARIES: Library[] = [
     creator: "Replace",
     category: Category.DI,
     description: 'Pragmatic lightweight DI framework for Kotlin.',
-    stars: '9.8k+',
+    stars: 9.8,
     latestVersion: '4.1.1',
     website: 'https://insert-koin.io/',
     implementation: {
@@ -154,7 +154,7 @@ export const LIBRARIES: Library[] = [
     creator: "Google",
     category: Category.DI,
     description: 'A fast dependency injector for Java and Android.',
-    stars: '17.7k+',
+    stars: 17.7,
     latestVersion: '2.59',
     website: 'https://dagger.dev/',
     implementation: {
@@ -175,7 +175,7 @@ export const LIBRARIES: Library[] = [
     creator: "AirBnb",
     category: Category.UI,
     description: 'Render After Effects animations natively.',
-    stars: '35.6k+',
+    stars: 35.6,
     latestVersion: '6.7.1',
     website: 'http://airbnb.io/lottie/',
     implementation: {
@@ -194,7 +194,7 @@ export const LIBRARIES: Library[] = [
     creator: "Replace",
     category: Category.UI,
     description: 'An easy way to add a shimmer effect to any view.',
-    stars: '15k+',
+    stars: 15,
     latestVersion: '0.5.0',
     website: 'http://facebook.github.io/shimmer-android/',
     implementation: {
@@ -213,7 +213,7 @@ export const LIBRARIES: Library[] = [
     creator: "Skydoves",
     category: Category.UI,
     description: 'Modern, lightweight tooltips for Android.',
-    stars: '3.9k+',
+    stars: 3.9,
     latestVersion: '1.7.3',
     website: 'https://github.com/skydoves/balloon',
     implementation: {
@@ -234,7 +234,7 @@ export const LIBRARIES: Library[] = [
     creator: "Replace",
     category: Category.DATABASE,
     description: 'Standard SQLite abstraction for Android.',
-    stars: 'Standard',
+    stars: 0,
     latestVersion: '2.8.4',
     website: 'https://developer.android.com/training/data-storage/room',
     implementation: {
@@ -253,7 +253,7 @@ export const LIBRARIES: Library[] = [
     creator: "Cashapp",
     category: Category.DATABASE,
     description: 'Generates Kotlin APIs from your SQL statements.',
-    stars: '6.7k+',
+    stars: 6.7,
     latestVersion: '2.2.1',
     website: 'https://cashapp.github.io/sqldelight/',
     implementation: {
@@ -274,7 +274,7 @@ export const LIBRARIES: Library[] = [
     creator: "Replace",
     category: Category.IMAGE_LOADING,
     description: 'Image loading backed by Kotlin Coroutines.',
-    stars: '11.7k+',
+    stars: 11.7,
     latestVersion: '3.3.0',
     website: 'https://coil-kt.github.io/coil/',
     implementation: {
@@ -293,7 +293,7 @@ export const LIBRARIES: Library[] = [
     creator: "Bumptech",
     category: Category.IMAGE_LOADING,
     description: 'Fast and efficient open source media management framework.',
-    stars: '35k+',
+    stars: 35,
     latestVersion: '5.0.5',
     website: 'https://github.com/bumptech/glide',
     implementation: {
@@ -312,7 +312,7 @@ export const LIBRARIES: Library[] = [
     creator: "Facebook",
     category: Category.IMAGE_LOADING,
     description: 'A powerful system for displaying images in Android by Meta.',
-    stars: '17.1k+',
+    stars: 17.1,
     latestVersion: '3.6.0',
     website: 'https://frescolib.org/',
     implementation: {
@@ -333,7 +333,7 @@ export const LIBRARIES: Library[] = [
     creator: "JakeWharton",
     category: Category.UTILS,
     description: 'Extensible API for Android Log.',
-    stars: '10.8k+',
+    stars: 10.8,
     latestVersion: '5.0.1',
     website: 'https://github.com/JakeWharton/timber',
     implementation: {
@@ -352,7 +352,7 @@ export const LIBRARIES: Library[] = [
     creator: "Replace",
     category: Category.UTILS,
     description: 'Functional programming companion to Kotlin.',
-    stars: '6.5k+',
+    stars: 6.5,
     latestVersion: '2.2.1.1',
     website: 'https://arrow-kt.io/',
     implementation: {
@@ -373,7 +373,7 @@ export const LIBRARIES: Library[] = [
     creator: "Replace",
     category: Category.TESTING,
     description: 'Mocking library for Kotlin.',
-    stars: '5.7k+',
+    stars: 5.7,
     latestVersion: '1.14.9',
     website: 'https://mockk.io/',
     implementation: {
@@ -394,7 +394,7 @@ export const LIBRARIES: Library[] = [
     creator: "Replace",
     category: Category.ARCHITECTURE,
     description: 'MVI state management by Airbnb.',
-    stars: '5.9k+',
+    stars: 5.9,
     latestVersion: '3.0.13',
     website: 'https://airbnb.io/mavericks/',
     implementation: {
@@ -415,7 +415,7 @@ export const LIBRARIES: Library[] = [
     creator: "Replace",
     category: Category.DEVTOOLS,
     description: 'Memory leak detection for Android.',
-    stars: '29.9k+',
+    stars: 29.9,
     latestVersion: '2.14',
     website: 'https://square.github.io/leakcanary/',
     implementation: {
@@ -434,7 +434,7 @@ export const LIBRARIES: Library[] = [
     creator: "Replace",
     category: Category.DEVTOOLS,
     description: 'On-device HTTP inspector.',
-    stars: '4.4k+',
+    stars: 4.4,
     latestVersion: '4.3.0',
     website: 'https://github.com/ChuckerTeam/chucker',
     implementation: {

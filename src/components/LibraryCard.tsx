@@ -1,5 +1,5 @@
 import React from "react";
-import {Library} from '../types';
+import {Library} from '../../types.ts';
 
 interface LibraryCardProps {
     library: Library;
@@ -23,7 +23,7 @@ const LibraryCard: React.FC<LibraryCardProps> = ({library, onClick}) => {
                     <img src="/ic_star.svg" alt="star" className="w-3 h-3 text-emerald-500"/>
                     <span
                         className="text-xs text-zinc-500 font-mono uppercase tracking-widest ">
-                      {library.stars}
+                      {library.stars}k+
                     </span>
                 </div>
             </div>
@@ -31,8 +31,8 @@ const LibraryCard: React.FC<LibraryCardProps> = ({library, onClick}) => {
             <div className="flex items-center justify-between">
                 <div className="flex gap-2">
                    <span
-                       className="text-[9px] bg-emerald-500/10 text-emerald-400/80 px-1.5 py-0.5 font-mono uppercase border border-emerald-500/20">
-                    {library.category}
+                       className="text-[9px]  text-zinc-700 font-bold px-1.5 py-0.5 font-mono lowercase ">
+                    # {library.category}
                   </span>
                 </div>
             </div>
