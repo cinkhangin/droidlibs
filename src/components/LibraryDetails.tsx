@@ -73,11 +73,11 @@ const LibraryDetails: React.FC<LibraryDetailsProps> = ({library, onClose}) => {
                                 <div className="space-y-6">
                                     <div>
                                         <p className="text-[11px] text-emerald-500/60 mb-2 font-mono">libs.versions.toml</p>
-                                        <CodeSnippet code={library.implementation.versionCatalog} language="toml" />
+                                        <CodeSnippet code={`${library.varName} = "${library.latestVersion}"\n${library.varName} = { group = "${library.groupId}", name = "${library.nameId}", version.ref = "${library.varName}"}`} language="toml" />
                                     </div>
                                     <div>
                                         <p className="text-[11px] text-emerald-500/60 mb-2 font-mono">build.gradle.kts</p>
-                                        <CodeSnippet code={library.implementation.kts} language="kotlin" />
+                                        <CodeSnippet code={`implementation("${library.groupId}:${library.nameId}:${library.latestVersion}")`} language="kotlin" />
                                     </div>
                                 </div>
                             </section>

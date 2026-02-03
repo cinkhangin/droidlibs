@@ -22,11 +22,9 @@ export interface Library {
   stars: number;
   latestVersion: string;
   website: string;
-  implementation: {
-    groovy: string;
-    kts: string;
-    versionCatalog: string;
-  };
+  groupId: string;
+  nameId: string;
+  varName: string;
   pros: string[];
   cons: string[];
   alternatives: string[];
@@ -34,12 +32,6 @@ export interface Library {
     problem: string;
     fix: string;
   }[];
-}
-
-export interface ChatMessage {
-  role: 'user' | 'assistant';
-  content: string;
-  links?: { title: string; uri: string }[];
 }
 
 export enum SponsorTier {

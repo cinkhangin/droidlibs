@@ -1,6 +1,6 @@
 import React, {useState, useMemo} from 'react';
 import {Category, Library} from '../types.ts';
-import {LIBRARIES} from './constants.tsx';
+import {LIBRARIES} from './constants.ts';
 import Sidebar from '@/src/components/Sidebar.tsx';
 import LibraryCard from '@/src/components/LibraryCard.tsx';
 import LibraryDetails from '@/src/components/LibraryDetails.tsx';

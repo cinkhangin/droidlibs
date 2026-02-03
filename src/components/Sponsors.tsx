@@ -1,5 +1,5 @@
 import React from "react";
-import {SPONSORS} from "@/src/constants.tsx";
+import {SPONSORS} from "@/src/constants.ts";
 import {SponsorTier} from "@/types.ts";
 
 const Sponsors = () => {
