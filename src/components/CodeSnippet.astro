@@ -1,0 +1,83 @@
+---
+import Prism from 'prismjs';
+import 'prismjs/components/prism-kotlin';
+import 'prismjs/components/prism-gradle';
+import 'prismjs/components/prism-toml';
+import 'prismjs/themes/prism.css'; // Ensure you import a theme
+
+interface Props {
+    code: string;
+    language: string;
+}
+
+const { code, language } = Astro.props;
+
+// Server-side highlighting (Optional, but better for performance)
+const highlightedCode = Prism.highlight(
+    code.trim(),
+    Prism.languages[language] || Prism.languages.plain,
+    language
+);
+---
+
+<div class="code-snippet-container relative group bg-zinc-50 p-4 rounded-sm text-xs text-zinc-500 border border-zinc-100 font-mono focus-within:border-emerald-500/50 outline-none">
+    <pre class={`language-${language} no-scrollbar leading-1`}><code class={`language-${language}`} set:html={highlightedCode}></code></pre>
+
+    <button
+            class="copy-button absolute top-1 right-1 p-1 bg-zinc-100 hover:bg-emerald-100 rounded-lg transition-colors z-10"
+            data-code={code}
+            title="Copy implementation"
+    >
+        <img src="/ic_copy.svg" alt="copy" class="copy-icon w-4 h-4"/>
+        <img src="/ic_check.svg" alt="check" class="check-icon w-4 h-4 hidden"/>
+    </button>
+</div>
+
+<script>
+    function setupCopyButtons() {
+        const containers = document.querySelectorAll('.code-snippet-container');
+
+        containers.forEach(container => {
+            const button = container.querySelector('.copy-button');
+            const copyIcon = container.querySelector('.copy-icon');
+            const checkIcon = container.querySelector('.check-icon');
+            const code = button?.getAttribute('data-code');
+
+            button?.addEventListener('click', () => {
+                if (code) {
+                    navigator.clipboard.writeText(code);
+
+                    // Toggle UI state
+                    copyIcon?.classList.add('hidden');
+                    checkIcon?.classList.remove('hidden');
+                    button.classList.add('bg-emerald-100');
+
+                    setTimeout(() => {
+                        copyIcon?.classList.remove('hidden');
+                        checkIcon?.classList.add('hidden');
+                        button.classList.remove('bg-emerald-100');
+                    }, 2000);
+                }
+            });
+        });
+    }
+
+    // Run on load and after Astro view transitions
+    setupCopyButtons();
+    document.addEventListener('astro:after-navigation', setupCopyButtons);
+</script>
+
+<style>
+    pre[class*="language-"] {
+        margin: 0 !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+    code[class*="language-"] {
+        font-family: 'JetBrains+Mono', monospace !important;
+        font-size: 0.875rem !important;
+        text-shadow: none !important;
+    }
+</style>

@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fafafa;
+    color: #0b0b0b;
+    letter-spacing: -0.011em;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+::selection {
+    background-color: rgba(74, 222, 128, 0.2);
+    color: #10B981;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f2f3f4;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #18181b;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4ade80;
+}
+
+pre[class*="language-"] {
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+code[class*="language-"] {
+    font-family: 'JetBrains+Mono', monospace !important;
+    font-size: 0.875rem !important;
+    text-shadow: none !important;
+}

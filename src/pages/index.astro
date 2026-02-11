@@ -1,0 +1,117 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import LibraryCard from '../components/LibraryCard.astro';
+import SideBar from '../components/SideBar.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import '../styles/global.css'
+import {getCollection} from "astro:content";
+
+const currentCategory = Astro.url.searchParams.get('category') || 'ui';
+const navItems = [
+	{ name: 'Home', href: '/' },
+	{ name: 'About', href: '/about' },
+	{ name: 'Blog', href: '/blog' },
+];
+
+console.log(currentCategory)
+
+const libraries = (await getCollection('libraries')).sort(
+	(a, b) => b.data.stars - a.data.stars,
+);
+
+const filteredLibraries = libraries.filter((library) => {
+	return currentCategory === 'all' || library.data.category === currentCategory;
+});
+---
+
+<!doctype html>
+<html lang="en">
+	<!--suppress HtmlRequiredTitleElement -->
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="min-h-screen flex flex-col bg-[#fafafa] text-zinc-300">
+				<div class="flex-1 flex flex-col md:flex-row h-[calc(100vh-56px)] overflow-hidden">
+					<SideBar/>
+
+					<main class="flex-1 overflow-y-auto bg-[#ffffff] p-8">
+						<!--<Sponsors/>-->
+
+						<div class="max-w-7xl mx-auto ">
+							<div class="flex items-center justify-between mb-8">
+								<div>
+									<h2 class="text-xl font-bold text-zinc-400 tracking-tight uppercase flex items-center gap-3">
+										<span id="active-category-name">Package Index</span>
+										<span class="w-1 h-1 bg-emerald-500 rounded-full"></span>
+									</h2>
+									<p class="text-[10px] text-zinc-600 font-mono mt-1 uppercase tracking-widest">
+										Libraries
+									</p>
+								</div>
+							</div>
+
+							<div
+								id="library-grid"
+								class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-1 bg-[#fafafa]">
+								{libraries.map((library) => (
+									<div
+										class="library-card-container bg-[#fafafa]"
+										data-category={library.data.category}
+									>
+										<LibraryCard {...library}/>
+									</div>
+								))}
+							</div>
+						</div>
+					</main>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>
+
+<script>
+	import {Categories} from "../consts.ts";
+
+	const filterLibraries = () => {
+		const urlParams = new URLSearchParams(window.location.search);
+		const currentCategory = urlParams.get('category') || 'all';
+		const items = document.querySelectorAll('.library-card-container');
+
+		// Find the category object by ID
+		const category = Categories.find(cat => cat.id === currentCategory);
+		const displayName = category ? category.name : 'Package Index';
+
+		const titleElement = document.getElementById('active-category-name');
+		if (titleElement) {
+			titleElement.textContent = displayName;
+		}
+
+		items.forEach((item) => {
+			const category = item.getAttribute('data-category');
+			if (currentCategory === 'all' || category === currentCategory) {
+				(item as HTMLElement).style.display = 'block';
+			} else {
+				(item as HTMLElement).style.display = 'none';
+			}
+		});
+	};
+
+	document.addEventListener('click', (e) => {
+		const link = (e.target as HTMLElement).closest('a');
+		if (link && link.href.includes('category=')) {
+			e.preventDefault();
+			window.history.pushState({}, '', link.href);
+			filterLibraries();
+		}
+	});
+
+	filterLibraries();
+	window.addEventListener('popstate', filterLibraries);
+	document.addEventListener('astro:after-navigation', filterLibraries);
+</script>

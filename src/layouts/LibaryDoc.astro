@@ -1,0 +1,42 @@
+---
+import type {CollectionEntry} from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Implementation from "../components/Implementation.astro";
+
+type Props = CollectionEntry<'libraries'>['data'];
+const {name, description, groupId, nameId, varName, latestVersion, website} = Astro.props;
+---
+
+<html lang="en">
+<head>
+    <BaseHead title={name} description={description}/>
+</head>
+
+<body>
+<Header/>
+<main>
+    <article>
+        <div class="prose prose-zinc mx-auto w-180 max-w-[calc(100%-2em)] p-4 text-zinc-700">
+            <div class="mb-4 py-4 text-center leading-none">
+                <h1 class="text-4xl font-bold mb-2 text-zinc-900">{name}</h1>
+                <hr class="border-zinc-200"/>
+            </div>
+
+            <Implementation
+                    name={name}
+                    groupId={groupId}
+                    nameId={nameId}
+                    varName={varName}
+                    version={latestVersion}
+                    link={website}
+            />
+
+            <div class="mt-8">
+                <slot/>
+            </div>
+        </div>
+    </article>
+</main>
+</body>
+</html>

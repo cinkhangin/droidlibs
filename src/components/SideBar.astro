@@ -1,0 +1,131 @@
+---
+import {Categories} from "../consts.ts";
+
+const selectedCategory = Astro.url.searchParams.get('category') || '';
+
+const categories = Categories
+/*const silverSponsors = SPONSORS.filter(s => s.tier === SponsorTier.SILVER);
+const textSponsors = SPONSORS.filter(s => s.tier === SponsorTier.TEXT);*/
+---
+
+<aside class="w-full md:w-64 bg-[#fafafa] border-r border-white h-full overflow-y-auto flex flex-col">
+    <div class="p-4 space-y-1 flex-1">
+        <div class="px-3 mb-6">
+            <h2 class="text-[10px] font-bold text-zinc-600 uppercase tracking-[0.2em] mono">Library Explorer</h2>
+        </div>
+
+        {categories.map((category) => (
+                <a href={`?category=${category.id}`}
+                   data-category-link={category.id}
+                   class="category-link w-full text-left px-3 py-1.5 text-sm transition-all duration-150 relative group flex items-center gap-2 text-zinc-500 hover:text-zinc-300"
+                >
+                    <div class="indicator hidden absolute left-0 w-0.5 h-4 bg-emerald-500 rounded-full shadow-[0_0_8px_rgba(74,222,128,0.8)]"></div>
+
+                    <span class="label group-hover:translate-x-0.5 transition-transform">
+                    {category.name}
+                </span>
+                </a>
+        ))}
+    </div>
+</aside>
+
+<!--
+<script>
+    const updateUI = () => {
+        const params = new URLSearchParams(window.location.search);
+        const currentCat = params.get('category') || 'all';
+
+        // 1. Update Sidebar Links
+        document.querySelectorAll('.category-link').forEach(link => {
+            const id = link.getAttribute('data-category-link');
+            const isActive = id === currentCat;
+            const indicator = link.querySelector('.indicator');
+            const label = link.querySelector('.label');
+
+            link.classList.toggle('text-emerald-400', isActive);
+            link.classList.toggle('text-zinc-500', !isActive);
+            indicator?.classList.toggle('hidden', !isActive);
+            label?.classList.toggle('font-medium', isActive);
+        });
+
+        // 2. Filter Library Cards
+        document.querySelectorAll('.library-card-container').forEach(card => {
+            const cardCat = card.getAttribute('data-category');
+            (card as HTMLElement).style.display =
+                (currentCat === 'all' || cardCat === currentCat) ? 'block' : 'none';
+        });
+    };
+
+    // Intercept clicks to prevent page refresh
+    document.addEventListener('click', (e) => {
+        const link = (e.target as HTMLElement).closest('.category-link') as HTMLAnchorElement;
+        if (link) {
+            e.preventDefault();
+            const url = new URL(link.href);
+            window.history.pushState({}, '', url);
+            updateUI();
+        }
+    });
+
+    // Handle browser back/forward
+    window.addEventListener('popstate', updateUI);
+
+    // Initial load
+    updateUI();
+</script>-->
+
+<script>
+    import { Categories } from "../consts.ts";
+
+    const updateUI = () => {
+        const params = new URLSearchParams(window.location.search);
+        const currentCat = params.get('category') || 'all';
+
+        // 1. Update the Heading Text
+        const category = Categories.find(cat => cat.id === currentCat);
+        const titleElement = document.getElementById('active-category-name');
+        if (titleElement) {
+            titleElement.textContent = category ? category.name : 'Package Index';
+        }
+
+        // 2. Update Sidebar Links Active State
+        document.querySelectorAll('.category-link').forEach(link => {
+            const id = link.getAttribute('data-category-link');
+            const isActive = id === currentCat;
+            const indicator = link.querySelector('.indicator');
+            const label = link.querySelector('.label');
+
+            link.classList.toggle('text-emerald-400', isActive);
+            link.classList.toggle('text-zinc-500', !isActive);
+            indicator?.classList.toggle('hidden', !isActive);
+            label?.classList.toggle('font-medium', isActive);
+        });
+
+        // 3. Filter Library Cards
+        document.querySelectorAll('.library-card-container').forEach(card => {
+            const cardCat = card.getAttribute('data-category');
+            (card as HTMLElement).style.display =
+                (currentCat === 'all' || cardCat === currentCat) ? 'block' : 'none';
+        });
+    };
+
+    // Intercept clicks to prevent page refresh
+    document.addEventListener('click', (e) => {
+        const link = (e.target as HTMLElement).closest('.category-link') as HTMLAnchorElement;
+        if (link) {
+            e.preventDefault();
+            const url = new URL(link.href);
+
+            // USE replaceState to avoid "double back" and page reload
+            window.history.replaceState({}, '', url);
+
+            updateUI();
+        }
+    });
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', updateUI);
+
+    // Initial load
+    updateUI();
+</script>

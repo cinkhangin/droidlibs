@@ -1,0 +1,62 @@
+{
+  "$ref": "#/definitions/libraries",
+  "definitions": {
+    "libraries": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "creator": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "latestVersion": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string",
+          "format": "uri"
+        },
+        "stars": {
+          "type": "number"
+        },
+        "groupId": {
+          "type": "string"
+        },
+        "nameId": {
+          "type": "string"
+        },
+        "varName": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "creator",
+        "category",
+        "description",
+        "latestVersion",
+        "website",
+        "stars",
+        "groupId",
+        "nameId",
+        "varName"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

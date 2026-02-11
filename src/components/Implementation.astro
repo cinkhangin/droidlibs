@@ -1,0 +1,56 @@
+---
+import CodeSnippet from "./CodeSnippet.astro";
+
+interface Props {
+    name: string;
+    groupId: string;
+    nameId: string;
+    varName: string;
+    version: string;
+    link: string;
+}
+
+const { name, groupId, nameId, varName, version, link } = Astro.props;
+---
+
+<section>
+    <h4 class="text-[10px] font-mono text-zinc-600 uppercase mb-4 tracking-[0.2em] flex items-center gap-2">
+        <span class="w-1 h-1 bg-emerald-500"></span>
+        Implementation
+    </h4>
+
+    <div class="space-y-6">
+        <div>
+            <p class="text-[11px] text-emerald-500/60 mb-2 font-mono">Using Version Catalog</p>
+            <CodeSnippet code={`
+# libs.versions.toml
+${varName} = "${version}"
+${varName} = { group = "${groupId}", name = "${nameId}", version.ref = "${varName}"}
+`.trim()} language="toml"/>
+        </div>
+
+        <div>
+            <p class="text-[11px] text-emerald-500/60 mb-2 font-mono">With Version Catalog</p>
+            <CodeSnippet code={`
+// build.gradle.kts
+implementation(libs.${varName})
+`.trim()} language="kotlin"/>
+        </div>
+
+        <div>
+            <p class="text-[11px] text-emerald-500/60 mb-2 font-mono">Without Version Catalog</p>
+            <CodeSnippet code={`
+// build.gradle.kts
+implementation("${groupId}:${nameId}:${version}")
+`.trim()} language="kotlin"/>
+        </div>
+    </div>
+
+    <div>
+        <p class="text-[11px] text-emerald-500/60 mb-2 font-mono">External Links</p>
+        <a href={link} target="_blank" rel="noopener noreferrer"
+           class="text-emerald-400 hover:text-emerald-300 text-xs font-mono underline decoration-emerald-900/50 underline-offset-4">
+            Visit {name} Documentation &rarr;
+        </a>
+    </div>
+</section>

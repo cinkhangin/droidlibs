@@ -1,0 +1,22 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import LibaryDoc from '../../layouts/LibaryDoc.astro';
+import CodeSnippet from '../../components/CodeSnippet.astro';
+
+const components = { pre: CodeSnippet };
+
+export async function getStaticPaths() {
+    const libraries = await getCollection('libraries');
+    return libraries.map((library) => ({
+        params: { slug: library.data.id },
+        props: library,
+    }));
+}
+type Props = CollectionEntry<'blog'>;
+const library = Astro.props;
+const { Content } = await render(library);
+---
+
+<LibaryDoc {...library.data}>
+    <Content components={components} />
+</LibaryDoc>
