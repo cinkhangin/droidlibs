@@ -6,11 +6,11 @@ export const SITE_DESCRIPTION = 'Android Library Explorer';
 
 export const Version = {
     INTERNAL: '0.1.0',
-    PUBLIC: "v2026.02.11a(beta)",
+    PUBLIC: "v2026.02.12a(beta)",
 };
 
 export const Categories = [
-    {name: 'Packages', id: 'all'},
+    {name: 'All Packages', id: 'all'},
     {name: 'Networking', id: 'nw'},
     {name: 'UI/UX', id: 'ui'},
     {name: 'Dependency Injection', id: 'di'},

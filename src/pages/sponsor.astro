@@ -1,0 +1,90 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+
+const tiers = [
+    {
+        id: 'BRONZE',
+        name: 'Bronze Sponsor',
+        price: '$100+',
+        tag: 'Bronze',
+        desc: 'Permanent name placement on our sidebar.'
+    },
+    {
+        id: 'SILVER',
+        name: 'Silver Sponsor',
+        price: '$1000+',
+        tag: 'Silver',
+        desc: 'Permanent B&W logo placement on out sidebar.'
+    },
+    {
+        id: 'GOLD',
+        name: 'Gold Sponsor',
+        price: '$2000+',
+        tag: 'Gold',
+        desc: 'Permanent High-res logo placement in the featured header.'
+    }
+];
+---
+
+<html lang="en">
+<head>
+    <BaseHead title="Sponsor" description="Become a sponsor"/>
+</head>
+
+<body class="bg-[#fafafa]">
+<Header/>
+<main class="flex items-center justify-center min-h-[calc(100vh-80px)] p-4">
+    <article class="w-full max-w-2xl bg-white border border-zinc-100 rounded-sm overflow-hidden flex flex-col shadow-[0_0_100px_-20px_rgba(74,222,128,0.2)]">
+        <div class="p-4">
+            <div class="flex justify-between items-start mb-10">
+                <div class="space-y-1">
+                    <h2 class="text-xl font-bold text-zinc-600 tracking-tight uppercase flex items-center gap-2">
+                        Become a sponsor
+                        <span class="w-1 h-1 bg-emerald-500 rounded-full animate-pulse"></span>
+                    </h2>
+                    <p class="text-[10px] text-zinc-500 font-mono uppercase tracking-[0.2em]">
+                        sponsorship does not expire.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                {tiers.map((tier) => (
+                        <div class="flex flex-col text-left p-5 border transition-all relative border-zinc-100 bg-[#fafafa] hover:border-zinc-700">
+                            {tier.tag && (
+                                    <span class="absolute -top-2 -right-2 bg-emerald-500 text-white text-[8px] font-bold px-2 py-0.5 uppercase tracking-tighter shadow-[0_4px_10px_rgba(74,222,128,0.3)]">
+                                {tier.tag}
+                            </span>
+                            )}
+                            <div class="flex justify-between items-center mb-2">
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">
+                                {tier.name}
+                            </span>
+                                <div class="text-right">
+                                    <span class="text-sm font-bold text-zinc-600">{tier.price}</span>
+                                </div>
+                            </div>
+                            <p class="text-[10px] text-zinc-500 leading-relaxed font-mono mt-2 line-clamp-2">
+                                {tier.desc}
+                            </p>
+                        </div>
+                ))}
+            </div>
+
+            <div class="space-y-4">
+                <a
+                        href="mailto:cinkhangin@gmail.com?subject=Sponsorship Inquiry"
+                        class="w-full h-14 text-white text-xs font-bold uppercase tracking-[0.3em] transition-all flex items-center justify-center bg-emerald-500 hover:bg-emerald-400"
+                >
+                    Contact Droidlibs Team
+                </a>
+                <p class="text-center text-[9px] text-zinc-600 font-mono uppercase tracking-widest">
+                    Sponsorship placement will be sorted by the amount.
+                </p>
+            </div>
+        </div>
+    </article>
+</main>
+</body>
+</html>

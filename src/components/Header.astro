@@ -30,12 +30,13 @@ const searchQuery = Astro.url.searchParams.get('q') || "";
 		</div>
 
 		<div class="flex items-center gap-4">
-			<button
+			<a
+				href="/sponsor"
 				id="sponsor-btn"
 				class="text-[10px] font-bold text-white bg-emerald-500 border border-white px-2 py-1.5 hover:bg-emerald-400 uppercase mono"
 			>
 				Become a Sponsor
-			</button>
+			</a>
 
 			<a href="https://github.com/cinkhangin/droidlibs" target="_blank" rel="noreferrer"
 			   class="text-zinc-600 hover:text-emerald-500 transition-colors">
