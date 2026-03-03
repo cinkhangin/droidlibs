@@ -5,8 +5,8 @@ export const SITE_TITLE = 'Droidlibs';
 export const SITE_DESCRIPTION = 'Android Library Explorer';
 
 export const Version = {
-    INTERNAL: '0.1.0',
-    PUBLIC: "v2026.02.12a(beta)",
+    INTERNAL: '0.1.1',
+    PUBLIC: "v2026.03.03a(beta)",
 };
 
 export const Categories = [
